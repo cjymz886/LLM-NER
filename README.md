@@ -86,7 +86,7 @@ python main.py \
 ```
 3.在ptuning目录下，执行：bash evaluate.sh， 预测<br/>
 4.执行：python ner_eval.py 测评<br/>
-本实验在单卡下跑的，若多卡ChatGLM2-6B；此外，测评显示是hard结果。<br/>
+本实验在单卡下跑的，若多卡参考ChatGLM2-6B；此外，测评显示是hard结果。<br/>
 
 
 
