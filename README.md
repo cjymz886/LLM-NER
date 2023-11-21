@@ -54,7 +54,7 @@ LLM for NER
 |---|---|
 |bilistm+crf|	70.0|
 |roberta-wwm-large-ext|	80.42|
-|LLM(chat2-6b+ptuning)|	78.69|
+|LLM(chatglm2-6b+ptuning)|	78.69|
 
 ## 3、执行步骤
 1.执行：python convert_prompt_data.py，转化指令数据<br/>
