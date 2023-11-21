@@ -33,7 +33,7 @@ LLM for NER
 ## 2、微调过程与结果
 
 两种指令差别在于对实体类型的解释与说明，instruction2对10类实体都做了举例说明，以期望这类先验信息对任务有帮助。两种指令下微调训练时主要参数为：<br/>
-| 参数 | instruction1 | instruction1|
+| 参数 | instruction1 | instruction2|
 | ------| ------| ------|
 |PRE_SEQ_LEN|64/128|64|
 |LR|2e-2|2e-2|
