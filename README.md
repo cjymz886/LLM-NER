@@ -97,7 +97,7 @@ instruction4是采样序列标记的方式，将实体的标签<type></type>嵌�
 ## 2、微调过程与结果
 实验主要对比上述四种指令效果，其中_64，_128为p-tuning 中soft prompt设置超参数，​chatgml是采样P-tuning方式，baichuan2是采样lora方式。我们可以看出：我们可以看出：
 
-![image](https://github.com/cjymz886/LLM-NER/blob/main/data/llm-ner.png)
+![image](https://github.com/cjymz886/LLM-NER/blob/main/data/llm_ner.png)
 
 ### 结果分析 <br/>
 
