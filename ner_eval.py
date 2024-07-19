@@ -43,6 +43,72 @@ def eval_ner_cluner(inputfile):
     print("ner soft metrics:  f1: %.4f, precision: %.4f, recall: %.4f" % (e_f1, e_precision, e_recall))
 
 
+def eval_ner_cluner4(inputfile):
+    X, Y, Z = 1e-10, 1e-10, 1e-10
+    labels_list = []
+    c_data = []
+    def extract_ner(text):
+        res = {}
+        p1 = re.compile(r'<name>(.*?)</name>')
+        p2 = re.compile(r'<organization>(.*?)</organization>')
+        p3 = re.compile(r'<scene>(.*?)</scene>')
+        p4 = re.compile(r'<company>(.*?)</company>')
+        p5 = re.compile(r'<movie>(.*?)</movie>')
+        p6 = re.compile(r'<book>(.*?)</book>')
+        p7 = re.compile(r'<government>(.*?)</government>')
+        p8 = re.compile(r'<position>(.*?)</position>')
+        p9 = re.compile(r'<address>(.*?)</address>')
+        p10 = re.compile(r'<game>(.*?)</game>')
+
+        if p1.findall(text):
+            for ent in p1.findall(text):
+                res[ent] = 'name'
+        if p2.findall(text):
+            for ent in p2.findall(text):
+                res[ent] = 'org'
+        if p3.findall(text):
+            for ent in p3.findall(text):
+                res[ent] = 'scene'
+        if p4.findall(text):
+            for ent in p4.findall(text):
+                res[ent] = 'com'
+        if p5.findall(text):
+            for ent in p5.findall(text):
+                res[ent] = 'movie'
+        if p6.findall(text):
+            for ent in p6.findall(text):
+                res[ent] = 'book'
+        if p7.findall(text):
+            for ent in p7.findall(text):
+                res[ent] = 'gov'
+        if p8.findall(text):
+            for ent in p8.findall(text):
+                res[ent] = 'pos'
+        if p9.findall(text):
+            for ent in p9.findall(text):
+                res[ent] = 'loc'
+        if p10.findall(text):
+            for ent in p10.findall(text):
+                res[ent] = 'game'
+        return res
+
+    with open(inputfile,'r',encoding='utf-8') as f:
+        for line in f:
+            line = json.loads(line)
+            label = line['labels']
+            predict = line['output']
+            gold_list = extract_ner(label)
+            pred_list = extract_ner(predict)
+            # print(gold_list)
+            # print(pred_list)
+            Z += len(gold_list)
+            Y += len(pred_list)
+            for k1 in gold_list:
+                for k2 in pred_list:
+                    if k1 == k2 and gold_list[k1] == pred_list[k2]:
+                        X += 1
+    f1, precision, recall = 2 * X / (Y + Z), X / Y, X / Z
+    print("ner metrics:  f1: %.4f, precision: %.4f, recall: %.4f" % (f1, precision, recall))
 
 
 
