@@ -18,7 +18,7 @@ LLM for NER
                   'address':'地点',
                   'game':'游戏'}
 ```
-接着，将数据集转化成指令类，本次尝试两次instruction方式，分别为instruction1、instruction2：<br/>
+接着，将数据集转化成指令类，尝试四种instruction方式，分别为instruction1、instruction2、instruction3、instruction4：<br/>
 
 ### instruction1
 ```
